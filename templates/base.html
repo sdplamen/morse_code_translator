@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Morse Code Translator{% endblock %}</title> {# Title can be overridden by child templates #}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        {# Include the navigation bar template #}
+        {% include 'nav-bar.html' %}
+
+        {# This is where the content from child templates will be inserted #}
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

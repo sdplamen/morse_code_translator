@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Morse Code Decoder{% endblock %}
+{% block content %}
+    <h1 id="decoder-section">Morse Code Decoder 🎧</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="morse-code">Enter Morse Code:</label>
+            <textarea
+                id="morse-code"
+                name="morse_code"
+                placeholder="E.g., .... . .-.. .-.. --- | .-- --- .-. .-.. -.."
+            >{{ prev_morse_input }}</textarea>
+            <p class="help-text">Separate letters with a space, words with ' | '.</p>
+        </div>
+        <button type="submit" name="decode_submit">Decode Message</button>
+    </form>
+
+    <div class="result-box">
+        <h2>Decoded Message:</h2>
+        <div class="message-display">
+            {% if decoded_message %}
+                {{ decoded_message }}
+            {% else %}
+                <span class="placeholder-text">Your decoded message will appear here.</span>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

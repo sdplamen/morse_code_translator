@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Morse Code Encoder{% endblock %}
+{% block content %}
+    <h1 id="encoder-section">Morse Code Encoder ✍️</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="english-text">Enter English Text:</label>
+            <textarea
+                id="english-text"
+                name="english_text"
+                placeholder="E.g., HELLO WORLD"
+            >{{ prev_english_input }}</textarea>
+            <p class="help-text">Enter uppercase letters or digits. Words will be separated by ' | '.</p>
+        </div>
+        <button type="submit" name="encode_submit">Encode Message</button>
+    </form>
+
+    <div class="result-box">
+        <h2>Encoded Message:</h2>
+        <div class="message-display">
+            {% if encoded_message %}
+                {{ encoded_message }}
+            {% else %}
+                <span class="placeholder-text">Your encoded Morse code will appear here.</span>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
