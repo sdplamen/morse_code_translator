@@ -8,13 +8,10 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <div class="main-container">
-        {# Include the navigation bar template #}
+    <main class="container">
         {% include 'nav-bar.html' %}
-
-        {# This is where the content from child templates will be inserted #}
         {% block content %}
         {% endblock content %}
-    </div>
+    </main>
 </body>
 </html>
